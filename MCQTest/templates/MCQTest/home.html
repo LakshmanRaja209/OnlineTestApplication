@@ -1,0 +1,67 @@
+{% extends 'MCQTest/base.html' %}
+{% block title %}MCQTest | Home {% endblock%}
+
+
+{% block script %} 
+function disableF5(e) { if ((e.which || e.keyCode) == 116 || (e.which || e.keyCode) == 82) e.preventDefault(); };
+
+$(document).ready(function(){
+     $(document).on("keydown", disableF5);
+});
+{% endblock%}
+	
+{% block style %}
+
+{% endblock%}
+
+
+{% block leftnavigation %}
+
+{% endblock %}
+
+{% block Timer %}<p id="note"></p> {% endblock %}
+
+{% block content %}
+
+
+{% if msg %}
+<div class="well">
+{{msg}}
+</div>
+{% endif %}
+
+ <!-- Questions -->
+		<form action="" method="Post">
+		{% csrf_token %}
+        <div style="padding-top:20px;" >
+		{% if Que %}
+		{% for q in Que %}
+				
+		
+            <div class="well">
+                <p id = {{q.id}}><b>{{q.id}}.{{q.question_text}}</b></p>
+				<h1>{{ question.question_text }}</h1>
+				{% for choice in q.choice_set.all %}
+				<input type="radio" id={{q.id}} name="{{q.id}}" value="{{q.id}},{{choice.id}}">{{ choice.choice_text }}<br>
+				{% endfor %}
+				
+            </div>
+			{% endfor %}
+
+			{% else %}
+			<div class="well">
+			<p> No items to display </p>
+			</div>
+			{% endif %}
+		</div>
+		<input type="text" id="Que" name="Que" value="{{list}}">
+		<input type="submit" id="submitquestions" class="btn btn-sm btn-primary" value="Submit the Questions...!" />
+		<br><br>
+		</form>
+		<!-- End Questions -->		
+        
+		<!-- /.row -->
+
+
+
+{% endblock %}

@@ -1,0 +1,59 @@
+{% extends 'MCQTest/base.html' %}
+{% block title %}MCQ Test | Home {% endblock%}
+
+
+{% block style %} 
+.short_cut{display: block;
+    margin-right: auto;
+    margin-left: auto;
+    align-content: center;
+    text-align: -webkit-center;
+	font-family: fantasy;
+    font-size: 28px;
+    font-weight: bolder;
+    color: #080808;
+	}
+	
+.category
+	{
+	display: block;
+    margin-right: auto;
+    margin-left: auto;
+    align-content: center;
+	text-align: -webkit-center;
+	}
+	
+	#OnHoverCategory:hover
+	{
+		text-decoration:none;
+		background-color:white;;
+		color:white;
+	}
+	#OnHoverCategory>p:hover{font-variant:bold;color:white;}
+{% endblock%}
+
+{% block script %} 
+
+{% endblock%}
+
+{% block content %}
+{% autoescape off %}
+{% if msg %}
+<div class="alert alert-info">
+{{msg}}
+</div>
+{% endif %}
+
+<div class = "row">
+   {% for r in result %}
+   <div class = "col-sm-6 col-md-3" style="wrap: wrap;">
+      <a href = "#" class = "thumbnail" id="OnHoverCategory">
+         <h class="short_cut">{{r}}</h>
+      </a>
+   </div>
+	{% endfor %}
+</div>
+{% endautoescape %}
+
+
+{% endblock%}

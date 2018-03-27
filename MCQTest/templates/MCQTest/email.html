@@ -1,0 +1,51 @@
+<html>
+<head>
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <style type="text/css">
+  td, th{border:2px; width:100px; height:auto;}
+  </style>
+</head>
+<body style="background-image:url('http://www.seasonsinafrica.com/adventure-activities-in-south-africa/lowveld-activities/mpumalanga-helicopter/kruger-lowveld-images/mpumalanga-helicopter-sky-background.jpg')">
+<h1><strong style="color:red;">MERI</strong> <strong>CART</strong></h1>
+Thank You for your shopping with us.
+<br>
+Your Order No : <b>{{order}}</b>
+<div class="thumbnail">
+<h4> Cart Details </h4>	
+<hr>		
+<div class="table-responsive">	  
+<table class="table">
+    <thead>
+      <tr>
+        <th>Product Name</th>
+        <th>Product Code</th>
+		<th>Item(s)</th>
+        <th>Price</th>
+      </tr>
+    </thead>
+    <tbody>
+	{% for i in car %}
+      <tr>
+        <td><strong>{{i.product.name}}</strong></td>
+        <td>{{i.product.product_code}}</td>
+		<td>{{i.total_no_product}}</td>
+        <td><strong>{{i.total_cost}}</strong></td>
+      </tr>
+	{% endfor %}
+	<tr>
+	<td colspan="3"><strong>Grand Total</strong></td>
+	<td><strong>{{tot}}</strong></td>
+	</tr>
+	  </tbody>
+</table>
+</div>
+
+<p>You can exchange the product with in two weeks</p>
+<p>Invoice will be mailed to you after the product s deliverd to you</p>
+<p>We will send mail information when the product is ready to deliver from our place.</p> 
+<p>We kindly request you to keep ready the total amount.</p>
+<p>We Kindly request you to check the product before taking it for any damages</p>
+<p>For any queries u can contact <b>Toll Free :1800-6666-6666 OR Email Us: mericart98@gmail.com</b></p>
+</div>
+</body>
+</html>

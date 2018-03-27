@@ -1,0 +1,59 @@
+{% extends 'MCQTest/base.html' %}
+{% block title %}MCQTest | Dashboard {% endblock%}
+
+
+{% block script %} 
+
+{% endblock%}
+	
+{% block style %}
+.short_cut{display: block;
+    margin-right: auto;
+    margin-left: auto;
+    align-content: center;
+    text-align: -webkit-center;
+	font-family: fantasy;
+    font-size: -webkit-xxx-large;
+    font-weight: bolder;
+    color: cadetblue;
+	}
+	
+.category
+	{
+	display: block;
+    margin-right: auto;
+    margin-left: auto;
+    align-content: center;
+	text-align: -webkit-center;
+	}
+	
+	#OnHoverCategory:hover
+	{
+		text-decoration:none;
+		background-color:#101010;;
+		color:white;
+	}
+	#OnHoverCategory>p:hover{font-variant:bold;}
+{% endblock%}
+
+{% block content %}
+
+
+{% if msg %}
+<div class="well">
+{{msg}}
+</div>
+{% endif %}
+
+<div class = "row">
+   {% for c in cat %}
+   <div class = "col-sm-6 col-md-3">
+      <a href = "/practice/{{c.id}}" class = "thumbnail" id="OnHoverCategory">
+         <h class="short_cut">{{c.Short_Cut}}</h>
+		 <p class="category">{{c.Quetion_Category}}</p>
+      </a>
+   </div>
+	{% endfor %}
+</div>
+
+{% endblock %}
